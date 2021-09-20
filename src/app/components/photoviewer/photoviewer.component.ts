@@ -21,6 +21,7 @@ export class PhotoviewerComponent implements OnInit, AfterViewInit {
   async ngOnInit() {
     this.imageList = [
       {url: 'https://i.ibb.co/wBYDxLq/beach.jpg', title: 'Beach Houses'},
+/*
       {url: 'https://i.ibb.co/gM5NNJX/butterfly.jpg', title: 'Butterfly'},
       {url: 'https://i.ibb.co/10fFGkZ/car-race.jpg', title: 'Car Racing'},
       {url: 'https://i.ibb.co/ygqHsHV/coffee-milk.jpg', title: 'Coffee with Milk'},
@@ -33,12 +34,14 @@ export class PhotoviewerComponent implements OnInit, AfterViewInit {
       {url: 'https://i.ibb.co/dBCHzXQ/paris.jpg', title: 'Paris Eiffel'},
       {url: 'https://i.ibb.co/JKB0KPk/pizza.jpg', title: 'Pizza Time'},
       {url: 'https://i.ibb.co/VYYPZGk/salmon.jpg', title: 'Salmon '},
+*/
     ];
   }
   async ngAfterViewInit() {
     const show = async (imageList: Image[], options?: ViewerOptions): Promise<capShowResult> => {
       const opt: capShowOptions = {} as capShowOptions;
       opt.images = imageList;
+      console.log(`angular app opt.images ${opt.images}`);
       if(options) {
         opt.options = options;
       }
