@@ -1,7 +1,20 @@
-#container {
+#button-container {
+  z-index: 900;
+}
+#photo-container {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom:0;
+  z-index: 999;
+}
+.visible {
+  visibility: visible;
+}
+.hidden {
+  display: none;
+}
+ion-content {
+  z-index: 20;
 }

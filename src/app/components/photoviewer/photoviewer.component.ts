@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { PhotoViewer, Image, ViewerOptions, capEchoResult,
   capShowOptions, capShowResult} from '@capacitor-community/photoviewer';
 import { Capacitor } from '@capacitor/core';
@@ -10,6 +10,8 @@ import { Toast } from '@capacitor/toast';
   styleUrls: ['./photoviewer.component.scss'],
 })
 export class PhotoviewerComponent implements OnInit, AfterViewInit {
+
+  @Input() mode ='';
   platform: string;
   imageList: Image[];
   options: ViewerOptions = {} as ViewerOptions;
@@ -19,23 +21,29 @@ export class PhotoviewerComponent implements OnInit, AfterViewInit {
    }
 
   async ngOnInit() {
-    this.imageList = [
-      {url: 'https://i.ibb.co/wBYDxLq/beach.jpg', title: 'Beach Houses'},
-/*
-      {url: 'https://i.ibb.co/gM5NNJX/butterfly.jpg', title: 'Butterfly'},
-      {url: 'https://i.ibb.co/10fFGkZ/car-race.jpg', title: 'Car Racing'},
-      {url: 'https://i.ibb.co/ygqHsHV/coffee-milk.jpg', title: 'Coffee with Milk'},
-      {url: 'https://i.ibb.co/7XqwsLw/fox.jpg', title: 'Fox'},
-      {url: 'https://i.ibb.co/L1m1NxP/girl.jpg', title: 'Mountain Girl'},
-      {url: 'https://i.ibb.co/wc9rSgw/desserts.jpg', title: 'Desserts Table'},
-      {url: 'https://i.picsum.photos/id/1009/5000/7502.jpg?hmac=Uj6crVILzsKbyZreBjHuMiaq_-n30qoHjqP0i7r30r8', title: 'Surfer'},
-      {url: 'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk', title: 'On a Lac'},
-      {url: 'https://i.ibb.co/wdrdpKC/kitten.jpg', title: 'Kitten'},
-      {url: 'https://i.ibb.co/dBCHzXQ/paris.jpg', title: 'Paris Eiffel'},
-      {url: 'https://i.ibb.co/JKB0KPk/pizza.jpg', title: 'Pizza Time'},
-      {url: 'https://i.ibb.co/VYYPZGk/salmon.jpg', title: 'Salmon '},
-*/
-    ];
+    if( this.mode === 'one') {
+      this.imageList = [
+        {url: 'https://i.ibb.co/wBYDxLq/beach.jpg', title: 'Beach Houses'},
+      ];
+    } else if ( this.mode === 'gallery') {
+      this.imageList = [
+        {url: 'https://i.ibb.co/wBYDxLq/beach.jpg', title: 'Beach Houses'},
+
+        {url: 'https://i.ibb.co/gM5NNJX/butterfly.jpg', title: 'Butterfly'},
+        {url: 'https://i.ibb.co/10fFGkZ/car-race.jpg', title: 'Car Racing'},
+        {url: 'https://i.ibb.co/ygqHsHV/coffee-milk.jpg', title: 'Coffee with Milk'},
+        {url: 'https://i.ibb.co/7XqwsLw/fox.jpg', title: 'Fox'},
+        {url: 'https://i.ibb.co/L1m1NxP/girl.jpg', title: 'Mountain Girl'},
+        {url: 'https://i.ibb.co/wc9rSgw/desserts.jpg', title: 'Desserts Table'},
+        {url: 'https://i.picsum.photos/id/1009/5000/7502.jpg?hmac=Uj6crVILzsKbyZreBjHuMiaq_-n30qoHjqP0i7r30r8', title: 'Surfer'},
+        {url: 'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk', title: 'On a Lac'},
+        {url: 'https://i.ibb.co/wdrdpKC/kitten.jpg', title: 'Kitten'},
+        {url: 'https://i.ibb.co/dBCHzXQ/paris.jpg', title: 'Paris Eiffel'},
+        {url: 'https://i.ibb.co/JKB0KPk/pizza.jpg', title: 'Pizza Time'},
+        {url: 'https://i.ibb.co/VYYPZGk/salmon.jpg', title: 'Salmon '},
+
+      ];
+    }
   }
   async ngAfterViewInit() {
     const show = async (imageList: Image[], options?: ViewerOptions): Promise<capShowResult> => {
@@ -82,10 +90,10 @@ export class PhotoviewerComponent implements OnInit, AfterViewInit {
       // here you defined the different options
       // **************************************
       // uncomment the following desired lines below
-      // options.title = false;
-      // options.share = false;
-      // options.transformer = "depth";
-      // options.spancount = 2
+      // this.options.title = false;
+      // this.options.share = false;
+      // this.options.transformer = "depth";
+      // this.options.spancount = 2
       this.options.maxzoomscale = 3;
       this.options.compressionquality = 0.6;
       this.options.movieoptions = {mode: 'portrait', imagetime: 3};

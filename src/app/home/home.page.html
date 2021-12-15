@@ -12,8 +12,7 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <app-photoviewer></app-photoviewer>
+  <div id="photo-container">
+    <app-photoviewer [mode]="currentMode"></app-photoviewer>
   </div>
 </ion-content>
