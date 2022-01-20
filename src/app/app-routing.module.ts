@@ -11,6 +11,9 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  { path: 'photoviewer/:mode',
+    loadChildren: () => import('./viewer/viewer.module').then( m => m.ViewerPageModule)
+  }
 ];
 
 @NgModule({
