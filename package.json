@@ -1,6 +1,6 @@
 {
   "name": "angular-photoviewer-app",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Ionic/Angular Photoviewer Application Starter",
   "author": "Jean Pierre Quéau",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
-    "@capacitor-community/photoviewer": "^1.0.7",
+    "@capacitor-community/photoviewer": "^1.0.9",
     "@capacitor/android": "3.3.4",
     "@capacitor/app": "1.0.7",
     "@capacitor/core": "3.3.4",
