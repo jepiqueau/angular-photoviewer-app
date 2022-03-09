@@ -61,10 +61,11 @@ export class PhotoviewerComponent implements AfterViewInit {
      if(!echo.value) {
       await showToast('no value to echo');
     } else {
-      await showToast(`echo ${echo.value}`);
+      console.log(`echo ${echo.value}`);
     }
     this.pvPlugin.addListener('jeepCapPhotoViewerExit',
     (e: any) => {
+      console.log(`&&& event ${JSON.stringify(e)}`);
       this.pvExit.emit(e);
     });
 
@@ -79,23 +80,25 @@ export class PhotoviewerComponent implements AfterViewInit {
       // this.options.spancount = 2
       this.options.maxzoomscale = 3;
       this.options.compressionquality = 0.6;
+      this.options.backgroundcolor = 'white';
       this.options.movieoptions = {mode: 'portrait', imagetime: 3};
       if (this.imageList != null && this.imageList.length > 0) {
         const result = await show(this.imageList, this.mode, this.startFrom, this.options);
         // base64 images call
         //ret = await show(base64List, options);
         if(!result.result) {
-            await showToast(JSON.stringify(result));
+            await showToast(result.message);
+            this.pvExit.emit({result: result.result, message: result.message});
         }
         if(result.result && Object.keys(result).includes('message')) {
-            await showToast(JSON.stringify(result));
-        }
+            await showToast(result.message);
+            this.pvExit.emit({result: result.result, message: result.message});
+          }
+
       }
     } catch (err) {
         await showToast(err);
-        if(this.platform === 'web' || this.platform === 'electron') {
-            window.location.reload();
-        }
+        this.pvExit.emit({result: false, message: err});
     }
 
   }

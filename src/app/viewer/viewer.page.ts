@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-viewer',
@@ -11,10 +11,12 @@ export class ViewerPage  implements OnInit{
   imageList: any[] = [];
   mode: string;
   startFrom: number;
+  platform: string;
 
-  constructor(private location: Location,
+  constructor(private router: Router,
               private actRoute: ActivatedRoute) {
     this.mode = this.actRoute.snapshot.params.mode;
+    this.platform = Capacitor.getPlatform();
   }
   async ngOnInit() {
     this.imageList = [
@@ -46,7 +48,7 @@ export class ViewerPage  implements OnInit{
     if(keys.includes('message')) {
       console.log(`returned message: ${ev.message}`);
     }
-    this.location.back();
+    this.router.navigateByUrl('/home');
   }
 
 }
