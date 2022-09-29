@@ -32,8 +32,18 @@ export class ViewerPage  implements OnInit{
       {url: 'https://i.ibb.co/wdrdpKC/kitten.jpg', title: 'Kitten'},
       {url: 'https://i.ibb.co/dBCHzXQ/paris.jpg', title: 'Paris Eiffel'},
       {url: 'https://i.ibb.co/JKB0KPk/pizza.jpg', title: 'Pizza Time'},
-      {url: 'https://i.ibb.co/VYYPZGk/salmon.jpg', title: 'Salmon '},
+      {url: 'https://i.ibb.co/VYYPZGk/salmon.jpg', title: 'Salmon '}
     ];
+    if (this.platform === 'ios') {
+      this.imageList.push({url: 'file:///var/mobile/Media/DCIM/100APPLE/IMG_0001.JPG', title: 'Image1'});
+      this.imageList.push({url: 'file:///var/mobile/Media/DCIM/100APPLE/IMG_0002.JPG', title: 'Image2'});
+    }
+    if (this.platform === 'android') {
+      this.imageList.push({url: 'file:///sdcard/DCIM/IMG_0001.JPG', title: 'Image1'});
+      this.imageList.push({url: 'file:///sdcard/DCIM/IMG_0002.JPG', title: 'Image2'});
+      this.imageList.push({url: 'file:///sdcard/Pictures/IMG_0003.JPG', title: 'Image3'});
+    }
+
     this.startFrom = 2;
 
   }
