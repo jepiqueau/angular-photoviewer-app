@@ -54,12 +54,13 @@ export class PhotoviewerComponent implements AfterViewInit {
       await Toast.show({
           text: message,
           position: 'center',
+          duration: 'long'
       });
     };
 
     const echo = await this.pvPlugin.echo({value:'Hello from PhotoViewer'});
-     if(!echo.value) {
-      await showToast('no value to echo');
+    if(!echo.value) {
+        await showToast('no value to echo');
     } else {
       console.log(`echo ${echo.value}`);
     }
@@ -68,7 +69,6 @@ export class PhotoviewerComponent implements AfterViewInit {
       console.log(`&&& event ${JSON.stringify(e)}`);
       this.pvExit.emit(e);
     });
-
     try {
       // **************************************
       // here you defined the different options
