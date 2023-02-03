@@ -5,10 +5,10 @@
 <p align="center">Ionic/Angular application demonstrating the use of the</p>
 <p align="center"><strong><code>@capacitor-community/photoviewer</code></strong></p>
 <br>
-<p align="center"><strong><code>this app uses Capacitor3</code></strong></p>
+<p align="center"><strong><code>this app uses Capacitor4</code></strong></p>
 <br>
 <p align="center">
-  <img src="https://img.shields.io/maintenance/yes/2021?style=flat-square" />
+  <img src="https://img.shields.io/maintenance/yes/2023?style=flat-square" />
   <a href="https://github.com/jepiqueau/angular-photoviewer-app"><img src="https://img.shields.io/github/license/jepiqueau/angular-photoviewer-app?style=flat-square" /></a>
   <a href="https://github.com/jepiqueau/angular-photoviewer-app"><img src="https://img.shields.io/github/package-json/v/jepiqueau/angular-photoviewer-app/master?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
